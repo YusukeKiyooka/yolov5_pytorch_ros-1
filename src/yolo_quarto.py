@@ -27,7 +27,7 @@ class ObjectTracker():
         self.final_object_place = np.zeros(17,dtype=int)
         self.object_place = np.zeros(17,dtype=int)
         self.board_place = [(115,136,33,63),(150,162,39,69),(178,195,46,76),(212,222,40,84),(108,125,51,81),(140,157,59,92),(173,187,57,95),(211,225,64,102),(93,115,66,107),(128,147,83,116),(165,182,81,116),(202,217,91,132),(81,103,103,137),(116,136,111,144),(156,177,109,155),(195,209,113,162,(110,137,174,216))] #ボードの閾値 
-	self.yolo_pub = rospy.Publisher("yolo_result", String, queue_size=10)
+	    self.yolo_pub = rospy.Publisher("yolo_result", String, queue_size=10)
 
 
     def _calculate_centroid_point(self, msg):
@@ -104,9 +104,7 @@ class ObjectTracker():
                     point = False
         else:  # false (recognized objects inboundingboxes)
             point = False
-        return self.object
 
-    def quarto_recognition(self):
         for i in range(16): 
             for j in range(17):
                 if self.board_place[j][0] < self.object[i][0] < self.board_place[j][1] and self.board_place[j][2] < self.object[i][1] < self.board_place[j][3]:
