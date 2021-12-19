@@ -1,0 +1,3 @@
+<launch>
+  <node name="get_coordinates" pkg="yolov5_pytorch_ros" type="yolo_quarto.py" output="screen"/>
+</launch>
